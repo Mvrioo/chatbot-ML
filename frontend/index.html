@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat con documentos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="shell">
+        <aside class="sidebar panel" aria-label="Archivos en data">
+            <div class="sidebar__head">
+                <h2 class="sidebar__title">Carpeta <code>data</code></h2>
+                <button type="button" class="sidebar__refresh" id="refreshFiles" title="Actualizar lista">↻</button>
+            </div>
+            <p class="sidebar__hint">Archivos disponibles para el asistente</p>
+            <ul class="file-list" id="fileList"></ul>
+            <p class="file-list__empty" id="fileListEmpty">Cargando…</p>
+        </aside>
+
+        <div class="main">
+            <header class="header">
+                <div class="header__brand">
+                    <span class="header__logo" aria-hidden="true">◈</span>
+                    <div>
+                        <h1 class="header__title">Asistente de documentos</h1>
+                        <p class="header__subtitle">Pregunta sobre tus PDF y textos indexados</p>
+                    </div>
+                </div>
+            </header>
+
+            <section class="panel upload-panel" id="dropzone" aria-label="Subir archivos">
+                <input type="file" id="fileInput" class="visually-hidden" multiple accept=".pdf,.txt,.md,application/pdf,text/plain">
+                <div class="upload-panel__inner">
+                    <div class="upload-panel__icon" aria-hidden="true">⬆</div>
+                    <p class="upload-panel__text"><strong>Arrastra archivos aquí</strong> o haz clic para elegir</p>
+                    <p class="upload-panel__hint">Se guardan en <code>/data</code> · PDF, TXT y MD se indexan para el chat</p>
+                </div>
+                <ul class="upload-status" id="uploadStatus" hidden></ul>
+            </section>
+
+            <main class="panel chat-panel">
+                <div class="chat-panel__scroll" id="chat" role="log" aria-live="polite"></div>
+                <div class="composer">
+                    <input type="text" id="input" class="composer__input" placeholder="Escribe tu pregunta…" autocomplete="off" />
+                    <button type="button" class="composer__send" id="sendBtn" onclick="enviar()">
+                        <span class="composer__send-label">Enviar</span>
+                    </button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="previewModal" class="modal" hidden>
+        <div class="modal__backdrop" id="previewBackdrop"></div>
+        <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="previewTitle">
+            <div class="modal__header">
+                <h3 class="modal__title" id="previewTitle"></h3>
+                <button type="button" class="modal__close" id="previewClose" aria-label="Cerrar">×</button>
+            </div>
+            <div class="modal__body">
+                <iframe id="previewFrame" class="modal__iframe" title="Vista previa"></iframe>
+                <div id="previewFallback" class="modal__fallback" hidden>
+                    <p>No hay vista previa para este tipo de archivo.</p>
+                    <a id="previewDownload" class="modal__download" href="#">Descargar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

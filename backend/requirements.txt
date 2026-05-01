@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+langchain
+langchain-community
+langchain-core
+langchain-ollama
+langchain-text-splitters
+pypdf
+faiss-cpu
+python-multipart
+streamlit
