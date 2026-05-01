@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+.env
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# RAG / data (no versionar)
+backend/vectorstore/
+backend/data/
+backend/uploads/
+
+# Logs
+*.log
