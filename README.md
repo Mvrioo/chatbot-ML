@@ -16,9 +16,20 @@ La idea es que el sistema sea capaz de **conectar información entre múltiples 
 ---
 
 ## Estructura del proyecto
-- `backend/`: API, indexación y consultas (RAG)
-- `frontend/`: interfaz simple (HTML)
-
+```bash
+Chatbot-ML/
+├── backend/                         # API + motor RAG (indexación y consultas)
+│   ├── main.py                      # FastAPI: endpoints /upload y /ask + CORS
+│   ├── rag.py                       # RAG: carga PDF, chunking, FAISS, embeddings, consultas
+│   ├── requirements.txt             # Dependencias del backend
+│   ├── data/                        # Archivos usados por el backend 
+│   └── uploads/                     # Carpeta de subidas 
+├── frontend/                        # Interfaz web 
+│   ├── index.html                   # UI para cargar PDF y chatear
+│   ├── script.js                    # Lógica del frontend (fetch al backend)
+│   └── styles.css                   # Estilos
+└── .gitignore                       # Archivos excluidos del control de versiones 
+```
 ---
 
 ## Requisitos
@@ -33,9 +44,12 @@ ollama pull llama3
 ```
 Instalación y ejecución (backend)
 Desde la carpeta backend/:
-
+```bash
 pip install -r requirements.txt
+```
+```bash
 python -m uvicorn main:app --reload
+```
 La API quedará disponible en:
 
 http://127.0.0.1:8000
@@ -44,8 +58,12 @@ Este frontend es estático. Puedes servirlo con la extensión Live Server.
 
 Inicia el backend (si no lo hiciste):
 
+```bash
 cd backend
+```
+```bash
 python -m uvicorn main:app --reload
+```
 En VS Code/Cursor, abre frontend/index.html y usa Open with Live Server.
 
 Live Server normalmente levanta el frontend en un puerto como http://127.0.0.1:5500.
