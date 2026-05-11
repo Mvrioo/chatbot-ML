@@ -134,6 +134,54 @@ body {
     line-height: 1.35;
 }
 
+.sidebar__toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem 0.6rem;
+    margin-bottom: 0.6rem;
+    padding: 0.45rem 0.5rem;
+    border-radius: var(--radius-sm);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+}
+
+.sidebar__toolbar[hidden] {
+    display: none !important;
+}
+
+.sidebar__toolbar-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+}
+
+.sidebar__toolbar-actions {
+    display: flex;
+    gap: 0.35rem;
+}
+
+.sidebar__toolbar-btn {
+    padding: 0.28rem 0.55rem;
+    font: inherit;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.sidebar__toolbar-btn:hover {
+    color: var(--accent);
+    border-color: var(--border-strong);
+}
+
 .file-list {
     list-style: none;
     margin: 0;
@@ -163,6 +211,33 @@ body {
     border: 1px solid transparent;
     background: rgba(0, 0, 0, 0.15);
     transition: border-color 0.15s;
+}
+
+.file-list__item--inactive {
+    opacity: 0.65;
+}
+
+.file-list__select {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.file-list__select:has(input:disabled) {
+    cursor: not-allowed;
+    opacity: 0.45;
+}
+
+.file-list__check {
+    width: 1.05rem;
+    height: 1.05rem;
+    margin: 0.15rem 0 0;
+    accent-color: var(--accent);
+    cursor: inherit;
 }
 
 .file-list__item:hover {

@@ -16,6 +16,8 @@ Thumbs.db
 
 # RAG / data (no versionar)
 backend/vectorstore/
+backend/vectorstore_user/
+backend/vectorstore_kb/
 backend/data/
 backend/uploads/
 

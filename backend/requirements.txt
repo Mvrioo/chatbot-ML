@@ -9,3 +9,4 @@ pypdf
 faiss-cpu
 python-multipart
 streamlit
+sentence-transformers

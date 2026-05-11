@@ -11,12 +11,19 @@
 </head>
 <body>
     <div class="shell">
-        <aside class="sidebar panel" aria-label="Archivos en data">
+        <aside class="sidebar panel" aria-label="Tus documentos">
             <div class="sidebar__head">
-                <h2 class="sidebar__title">Carpeta <code>data</code></h2>
+                <h2 class="sidebar__title">Tus documentos</h2>
                 <button type="button" class="sidebar__refresh" id="refreshFiles" title="Actualizar lista">↻</button>
             </div>
-            <p class="sidebar__hint">Archivos disponibles para el asistente</p>
+            <p class="sidebar__hint">Marca qué archivos entran en cada pregunta. La normativa de referencia sigue en <code>uploads</code> del servidor.</p>
+            <div class="sidebar__toolbar" id="fileSelectionToolbar" hidden>
+                <span class="sidebar__toolbar-label">Incluir en el chat</span>
+                <div class="sidebar__toolbar-actions">
+                    <button type="button" class="sidebar__toolbar-btn" id="selectAllUserDocs">Todos</button>
+                    <button type="button" class="sidebar__toolbar-btn" id="selectNoneUserDocs">Ninguno</button>
+                </div>
+            </div>
             <ul class="file-list" id="fileList"></ul>
             <p class="file-list__empty" id="fileListEmpty">Cargando…</p>
         </aside>
@@ -27,7 +34,7 @@
                     <span class="header__logo" aria-hidden="true">◈</span>
                     <div>
                         <h1 class="header__title">Asistente de documentos</h1>
-                        <p class="header__subtitle">Pregunta sobre tus PDF y textos indexados</p>
+                        <p class="header__subtitle">Tu contrato (data) + base de conocimiento del servidor (uploads)</p>
                     </div>
                 </div>
             </header>
@@ -37,7 +44,7 @@
                 <div class="upload-panel__inner">
                     <div class="upload-panel__icon" aria-hidden="true">⬆</div>
                     <p class="upload-panel__text"><strong>Arrastra archivos aquí</strong> o haz clic para elegir</p>
-                    <p class="upload-panel__hint">Se guardan en <code>/data</code> · PDF, TXT y MD se indexan para el chat</p>
+                    <p class="upload-panel__hint">Se guardan en <code>data/</code> del servidor · PDF, TXT y MD · El chat prioriza estos archivos y usa <code>uploads/</code> como apoyo normativo</p>
                 </div>
                 <ul class="upload-status" id="uploadStatus" hidden></ul>
             </section>
